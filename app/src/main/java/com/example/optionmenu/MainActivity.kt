@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity() {
             duration=1100
             interpolator=AccelerateDecelerateInterpolator()
         }
+        println("Insde Nested class")
         var linearLayout:LinearLayout=findViewById(R.id.Layout1One)
         val view1:View=layoutInflater.inflate(R.layout.todolist,null)
         val view2timePicker:View=layoutInflater.inflate(R.layout.timepicker,null)
@@ -54,6 +55,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.fab.setOnClickListener{
             //binding.fab.isVisible=false
+            binding.calendar1.datePicker.isVisible=false
             binding.Viewcircle.isVisible=true
             binding.Viewcircle.startAnimation(animation){
                 // display your fragment
@@ -73,6 +75,7 @@ class MainActivity : AppCompatActivity() {
             binding.Viewrectangle.startAnimation(animation2){
                 binding.root.setBackgroundColor(ContextCompat.getColor(this,android.R.color.holo_orange_dark))
                 binding.Viewrectangle.isVisible=false
+                binding.calendar1.datePicker.isVisible=true
 
 
 
@@ -81,6 +84,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.floatingActionButton.setOnClickListener {
+            binding.calendar1.datePicker.isVisible=false
             binding.Viewbutton3.isVisible=true
             binding.Viewbutton3.startAnimation(animation2){
                 binding.root.setBackgroundColor(ContextCompat.getColor(this,
@@ -98,14 +102,19 @@ class MainActivity : AppCompatActivity() {
        // setButtonClock.adActionBack(buttonBackCl)
        // setButtonToDo.adActionBack(buttonBackToDo)
         buttonBackCl.setOnClickListener {
+            binding.calendar1.datePicker.isVisible=false
             setContentView(binding.root)
         }
         buttonBackToDo.setOnClickListener {
+            binding.calendar1.datePicker.isVisible=false
            setContentView(binding.root)
         }
 
 
 
+
+    }
+    fun setBindings(binding: ActivityMainBinding){
 
     }
 }
